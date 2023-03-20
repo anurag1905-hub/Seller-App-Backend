@@ -1,0 +1,63 @@
+const mongoose = require('mongoose');
+
+const contextSchema = new mongoose.Schema({
+    domain:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Domain',
+        required:true
+    },
+    country:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Country',
+        required:true
+    },
+    city:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'code',
+        required:true
+    },
+    action:{
+        type:String,
+        required:true
+    },
+    core_version:{
+        type:String,
+        required:true
+    },
+    bap_id:{
+        type:String,
+        required:true
+    },
+    bap_uri:{
+        type:String,
+        required:true
+    },
+    bpp_id:{
+        type:String
+    },
+    bpp_uri:{
+        type:String
+    },
+    transaction_id:{
+        type:String,
+        required:true
+    },
+    message_id:{
+        type:String,
+        required:true
+    },
+    timestamp:{
+        type:String,
+        required:true
+    },
+    key:{
+        type:String
+    },
+    ttl:{
+        type:String
+    },
+},{
+    timestamps:true
+});
+
+module.exports = mongoose.model('Context',contextSchema);

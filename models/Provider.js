@@ -1,0 +1,67 @@
+const mongoose = require('mongoose');
+
+const providerSchema = new mongoose.Schema({
+    providerId:{
+        type:String
+    },
+    descriptor:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Descriptor'
+    },
+    category_id:{
+        type:String
+    },
+    rating:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Rating'
+    },
+    time:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Time'
+    },
+    categories:[{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Category'
+    }],
+    fulfillments:[{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Fulfillment'
+    }],
+    payments:[{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Payment'
+    }],
+    locations:[{
+        location:{
+            type:mongoose.Schema.Types.ObjectId,
+            ref:'Location'
+        },
+        rateable:{
+            type:mongoose.Schema.Types.ObjectId,
+            ref:'Rateable'
+        }
+    }],
+    offers:[{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Offer'
+    }],
+    items:[{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Item'
+    }],
+    exp:{
+        type:String
+    },
+    rateable:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Rateable'
+    },
+    tags:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Tags'
+    }
+},{
+    timestamps:true
+});
+
+module.exports = mongoose.model('Provider',providerSchema);

@@ -1,0 +1,72 @@
+const mongoose = require('mongoose');
+
+const itemSchema = new mongoose.Schema({
+    item_id:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Item'
+    },
+    parent_item_id:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Item'
+    },
+    descriptor:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Descriptor'
+    },
+    price:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Price'
+    },
+    category_id:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Category'
+    },
+    fulfillment_id:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Fulfillment'
+    },
+    rating:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Rating'
+    },
+    location_id:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Location'
+    },
+    time:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Time'
+    },
+    rateable:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Rateable'
+    },
+    matched:{
+        type:Boolean
+    },
+    related:{
+        type:Boolean
+    },
+    recommended:{
+        type:Boolean
+    },
+    tags:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Tags'
+    },
+    weight:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Scalar'
+    },
+    dimensions:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Dimensions'
+    },
+    dangerous_goods:{
+        type:Boolean
+    }
+},{
+    timestamps:true
+});
+
+module.exports = mongoose.model('Item',itemSchema);
